@@ -1,0 +1,61 @@
+﻿<Page x:Class="ProjectShop.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="750"
+      Title="Page2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="0.6*"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"  >
+            <Label Content="Customer Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Label  Content="Name:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Surename:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Address:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Telephone:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox Name="NameTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                <TextBox Name="SurenameTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                <TextBox Name="AddressTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                <TextBox Name="TelephoneTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+
+            </StackPanel>
+            
+        </Grid>
+        <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+
+                </Grid.ColumnDefinitions>
+            <Button Content="Back" Name="BackButton"  FontSize="15" Margin="10"  Grid.Column="0" Click="BackButton_Click"/>
+            
+            <Button Content="Order" Name="OrderButton"  FontSize="15" Margin="10" Grid.Column="3" Click="OrderButton_Click"/>
+
+        </Grid>
+        
+    </Grid>
+</Page>

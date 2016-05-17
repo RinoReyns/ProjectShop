@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+       
+        Title="My Shop" Height="600" Width="750"
+        WindowStartupLocation="CenterScreen"
+        BorderBrush="#FF1986D1"
+        BorderThickness="1" Closing="Window_Closing" 
         
-    </Grid>
+        >
+    <!--  Background="Aqua"  WindowStyle="None"  AllowsTransparency="True"-->
+
+    <Frame Name="Frame1" NavigationUIVisibility="Hidden">
+        
+    </Frame>
 </Window>

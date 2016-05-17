@@ -1,0 +1,95 @@
+﻿<Page x:Class="ProjectShop.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectShop"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="750"
+      Title="Page3">
+  
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.6*"/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"  >
+            <Label Content="Summary" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Label  Content="Name:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Surename:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Address:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Telephone:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <Label Name="NameLabel"  Height="30" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5" />
+                <Label Name="SurenameLabel"  Height="30" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5" />
+                <Label Name="AddressLabel"  Height="30" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5" />
+                <Label Name="TelephoneLabel"  Height="30" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5" />
+
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="3*"/>
+                
+
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" HorizontalContentAlignment="Center" Content="Order"  Width="750" Background="Green" FontSize="20" FontWeight="Bold" />
+            <ListView  Name="ListView1" Grid.Row="1" ItemsSource="{Binding  ProductChosenList}"  BorderBrush="#FF1986D1"  >
+                <ListView.View>
+                    <GridView >
+                        <!--- <GridView.ColumnHeaderContainerStyle>
+                        <Style BasedOn="{StaticResource {x:Type GridViewColumnHeader}}" TargetType="{x:Type GridViewColumnHeader}">
+                            <Setter Property="IsHitTestVisible" Value="False"/>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
+                    -->
+
+                        <GridViewColumn Header="Name" Width="60"  DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Price" Width="60" DisplayMemberBinding="{Binding Price}" />
+                        <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
+                        <!--    <GridViewColumn Header="cos1" DisplayMemberBinding="{Binding Nickname}" Width="50"/>
+                    <GridViewColumn Header="cos1" DisplayMemberBinding="{Binding Nickname}" Width="50"/>
+          -->
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+        </Grid>
+        
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="1*"/>
+
+            </Grid.ColumnDefinitions>
+            <Button Content="Back" Name="BackButton1"  FontSize="15" Margin="10"  Grid.Column="0" Click="BackButton1_Click" />
+            <Label  Content="Final Price:"  Grid.Column="1" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Margin="5,3,5,5"/>
+            <Label Name="FinalPriceLabel"  Grid.Column="2" HorizontalAlignment="Left"  FontSize="20" FontWeight="Bold" Margin="5,3,5,5"/>
+            <Button Content="Finish Shopping" Name="FinishShopping"  FontSize="15" Margin="10" Grid.Column="3" Click="FinishShopping_Click" />
+
+        </Grid>
+    </Grid>
+
+   
+</Page>

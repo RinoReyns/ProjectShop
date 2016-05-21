@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjectShop
 {
@@ -12,7 +13,9 @@ namespace ProjectShop
     public enum Sport { Ball,Tenis_Rocket , Net }
     public enum Motorization { Car, Bus, Bike }
     public enum Color { Black, Pink, Yellow, Blue, White }
-    public enum ColorBlack {Black }
+    public enum ColorBlack {Black}
+
+
 
     /// <summary>
     /// też do policzenia ogolnej liości i ceny
@@ -25,14 +28,18 @@ namespace ProjectShop
         public int Quantity { get; set; }
         public string Color { get; set; }
         public string Producent { get; set; }
+        public List<int> Size;
+        //każdy produk ma liste swoich rozmairów podpinaną do boxa
         public Product()
         {
             this.Quantity = 1;
             this.Color = "1";
         }
-        public double Count(int quantity, double price)
+        public double Count(int quantity, double price, bool? checkbox)
         {
-
+            if (checkbox == true)            
+                return ((quantity * price) + quantity*10);   
+            else 
             return (quantity * price);
         }
     }

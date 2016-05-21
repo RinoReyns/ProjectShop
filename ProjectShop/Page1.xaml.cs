@@ -79,21 +79,24 @@ namespace ProjectShop
                 string c = this.ColorComboBox.SelectedValue.ToString();
                 Product item = (Product)Activator.CreateInstance(Type.GetType("ProjectShop." + a));
                 int b = Control.check(ProductChosenList, a,c);
+          
                 if (-1 == b )
                 {
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text);
                     item.Color = c;
+                    item.Price = item.Count(item.Quantity, item.Price, this.CheckBoxButton.IsChecked);
                     ProductChosenList.Add(item);
                 }
                 else
                 
                 {
+                    item.Price = item.Count(int.Parse(this.TextBoxQuantity.Text), item.Price, this.CheckBoxButton.IsChecked )+ ProductChosenList[b].Price;
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[b].Quantity;
-                    item.Price = item.Count(item.Quantity,item.Price);
                     item.Color = ProductChosenList[b].Color;
                     ProductChosenList.RemoveAt(b);
                     ProductChosenList.Insert(b, item);
                 }
+
             }
             catch (Exception)
             {
@@ -132,5 +135,7 @@ namespace ProjectShop
                 MessageBox.Show("You haven't chose anything.", "Empty basket. ");
             }   
         }
+
+      
     }
 }

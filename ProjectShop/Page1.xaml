@@ -50,7 +50,7 @@
         <!--Trzeci wiersz i jego podział-->
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1.15*" />
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -78,20 +78,24 @@
 
 
             <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
-                <Label Content="Price:"  FontSize="15" Margin="5,5,5,5"/>
+                <Label Content="Price($) :"  FontSize="15" Margin="5,5,5,5"/>
                 <TextBlock Name="TextBlockPrice"   FontSize="15"  Margin="0,11,5,5"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2"  Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
                 <Label Content="Quantity:"  FontSize="15"  Margin="5,5,5,5"/>
-                <TextBox x:Name="TextBoxQuantity" FontSize="15" Width="93" Height="25" Margin="5,-10,0,0"   />
+                <TextBox x:Name="TextBoxQuantity" FontSize="15" Width="90" Height="25" Margin="5,-10,0,0"   />
             </StackPanel>
 
             <StackPanel Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Left" Orientation="Horizontal" >
                 <Label Content="Color:"  FontSize="15"  Margin="5,5,5,5" Grid.Row="0"/>
                 <ComboBox x:Name="ColorComboBox" Width="93" FontSize="15" Height="30" Margin="10,-10,0,0" />
-
             </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Orientation="Horizontal" >
+                <Label Content="Extra Warrenty Year - cost:10$ "  FontSize="15" />
+               </StackPanel>
+            <CheckBox Name="CheckBoxButton" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Margin="10,8,10,6" IsChecked="True"  />
+
 
         </Grid>
 

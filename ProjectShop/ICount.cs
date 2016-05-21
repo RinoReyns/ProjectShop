@@ -8,6 +8,6 @@ namespace ProjectShop
 {
     interface ICount
     {
-        double Count(int quantity, double price);
+        double Count(int quantity, double price, bool? checkbox);
     }
 }

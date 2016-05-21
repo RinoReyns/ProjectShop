@@ -11,7 +11,7 @@ namespace ProjectShop
     public partial class MainWindow : Window
     {
     
-        public MainWindow()
+        public MainWindow() 
         {
             InitializeComponent();
             Frame1.NavigationService.Navigate(new Page1(new ObservableCollection<Product>()));

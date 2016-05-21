@@ -17,6 +17,10 @@ namespace ProjectShop
             InitializeComponent();
             ProductChosenList = new ObservableCollection<Product>(T);
             Person = new Person(P);
+            this.NameTextBox.Text = Person.Name;
+            this.SurenameTextBox.Text = Person.Surename;
+            this.AddressTextBox.Text = Person.Address;
+            this.TelephoneTextBox.Text = Person.Telephone;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -34,6 +38,7 @@ namespace ProjectShop
                 }
                 else
                 {
+                    // brak polskich znaków exception
                     Person.Name = NameTextBox.Text;
                     Person.Surename = SurenameTextBox.Text;
                     Person.Address = AddressTextBox.Text;

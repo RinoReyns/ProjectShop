@@ -51,6 +51,17 @@ namespace ProjectShop
                         this.TextBlockMark.Text = Item.Name;
                         this.TextBlockPrice.Text = Item.Price.ToString();
                         this.TextBoxQuantity.Text = Item.Quantity.ToString();
+                        this.TextBlockProducent.Text = Item.Producent;
+                        if (0 ==(String.Compare("0",Item.Color)))
+                        {
+                            this.ColorComboBox.ItemsSource = Enum.GetValues(typeof(ColorBlack));
+                            this.ColorComboBox.SelectedIndex = 0;
+                        }
+                        else
+                        {
+                            this.ColorComboBox.ItemsSource= Enum.GetValues(typeof(Color));
+                            this.ColorComboBox.SelectedIndex = 1;
+                        }
                     }
                 }
             }
@@ -65,17 +76,21 @@ namespace ProjectShop
             try
             {
                 string a = this.ChooseItemComboBox.SelectedValue.ToString();
+                string c = this.ColorComboBox.SelectedValue.ToString();
                 Product item = (Product)Activator.CreateInstance(Type.GetType("ProjectShop." + a));
-                int b = Control.check(ProductChosenList, a);
-                if (-1 == b)
+                int b = Control.check(ProductChosenList, a,c);
+                if (-1 == b )
                 {
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text);
+                    item.Color = c;
                     ProductChosenList.Add(item);
                 }
                 else
+                
                 {
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[b].Quantity;
                     item.Price = item.Count(item.Quantity,item.Price);
+                    item.Color = ProductChosenList[b].Color;
                     ProductChosenList.RemoveAt(b);
                     ProductChosenList.Insert(b, item);
                 }

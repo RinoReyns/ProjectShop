@@ -65,6 +65,9 @@
                         <GridViewColumn Header="Name" Width="60"  DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Price" Width="60" DisplayMemberBinding="{Binding Price}" />
                         <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
+                        <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Color}" />
+                        <GridViewColumn Header="Producent"  Width="70" DisplayMemberBinding="{Binding Producent}" />
+
                         <!--    <GridViewColumn Header="cos1" DisplayMemberBinding="{Binding Nickname}" Width="50"/>
                     <GridViewColumn Header="cos1" DisplayMemberBinding="{Binding Nickname}" Width="50"/>
           -->

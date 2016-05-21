@@ -8,13 +8,18 @@
         public string Telephone { get; set; }
 
         public Person()
-        { }
+        {}
         public Person(Person P)
         {
-            this.Name = P.Name;
+            this.Name = "Łukasz";
+            this.Surename = "Pindor";
+            this.Address = "Tak";
+            this.Telephone = "503488787";
+            
+       /*    this.Name = P.Name;
             this.Surename = P.Surename;
             this.Address = P.Address;
-            this.Telephone = P.Telephone;
+            this.Telephone = P.Telephone;*/
         }
 
     }

@@ -44,7 +44,6 @@ namespace ProjectShop
                     Person.Address = AddressTextBox.Text;
                     Person.Telephone = TelephoneTextBox.Text;
                     this.NavigationService.Navigate(new Page3(ProductChosenList, Person));
-           
                 }
             }
             catch (Exception)

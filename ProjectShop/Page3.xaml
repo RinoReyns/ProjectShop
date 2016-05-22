@@ -29,10 +29,10 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Label  Content="Name:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
-                <Label  Content="Surename:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
-                <Label  Content="Address:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
-                <Label  Content="Telephone:"   HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Name:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Surename:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Address:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Telephone:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
 
             </StackPanel>
             <StackPanel Grid.Column="1">
@@ -55,22 +55,14 @@
             <ListView  Name="ListView1" Grid.Row="1" ItemsSource="{Binding  ProductChosenList}"  BorderBrush="#FF1986D1"  >
                 <ListView.View>
                     <GridView >
-                        <!--- <GridView.ColumnHeaderContainerStyle>
-                        <Style BasedOn="{StaticResource {x:Type GridViewColumnHeader}}" TargetType="{x:Type GridViewColumnHeader}">
-                            <Setter Property="IsHitTestVisible" Value="False"/>
-                        </Style>
-                    </GridView.ColumnHeaderContainerStyle>
-                    -->
-
                         <GridViewColumn Header="Name" Width="60"  DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Price" Width="60" DisplayMemberBinding="{Binding Price}" />
                         <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
                         <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Color}" />
                         <GridViewColumn Header="Producent"  Width="70" DisplayMemberBinding="{Binding Producent}" />
+                        <GridViewColumn Header="Size"  Width="75" DisplayMemberBinding="{Binding SizeItem}" />
+                        <GridViewColumn Header="Extra Worrenty Elements"  Width="150" DisplayMemberBinding="{Binding WithWarrentyElementsCounter}" />
 
-                        <!--    <GridViewColumn Header="cos1" DisplayMemberBinding="{Binding Nickname}" Width="50"/>
-                    <GridViewColumn Header="cos1" DisplayMemberBinding="{Binding Nickname}" Width="50"/>
-          -->
                     </GridView>
                 </ListView.View>
 

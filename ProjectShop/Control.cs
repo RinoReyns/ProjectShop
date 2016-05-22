@@ -21,11 +21,11 @@ namespace ProjectShop
             return 0;
         }
 
-        public int check(ObservableCollection<Product> T, string a, string b)
+        public int check(ObservableCollection<Product> T, string a, string b, string c)
         {
             foreach (var Products in T)
             {
-                if ((0 == (String.Compare(a, Products.Name))) & (0 == (String.Compare(b, Products.Color))))
+                if ((0 == (String.Compare(a, Products.Name))) & (0 == (String.Compare(b, Products.Color))) & 0 == (String.Compare(c, Products.SizeItem)))
                     return (T.IndexOf(Products));
             }
             return -1;
@@ -42,22 +42,26 @@ namespace ProjectShop
 
         public void PDF_Creator(ObservableCollection<Product> T, Person Person)
         {
-            // sprawdzanie czy istnieje i tworzenie nowego i polskie znaki
+    
             var path = "order.pdf ";
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            Document doc = new Document(PageSize.LETTER, 10, 10, 42, 35);
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
             doc.Open();
-
-            int row = 5;
+      
+              int row = 7;
             PdfPTable table = new PdfPTable(row);
-            Paragraph paragraph = new Paragraph(" Name: " + Person.Name + "\n Surename: " + Person.Surename + "\n Address: " + Person.Address + "\n Telephone: " + Person.Telephone +"\n");
+            
+            Paragraph paragraph = new Paragraph(" Name: " + Person.Name + "\n Surename: " + Person.Surename + "\n Address: " + Person.Address + "\n Telephone: " + Person.Telephone + "\n") {  };
+            paragraph.Alignment = 1;
             Paragraph paragraph2 = new Paragraph("\n\n\n\n\n");
-            PdfPCell cell = new PdfPCell(new Phrase ("Order",  new Font(Font.NORMAL,15f, Font.NORMAL) ));
-            PdfPCell cell1 = new PdfPCell(new Phrase("Product", new Font(Font.NORMAL, 12f, Font.NORMAL)));
-            PdfPCell cell2 = new PdfPCell(new Phrase("Quantity", new Font(Font.NORMAL, 12f, Font.NORMAL)));
-            PdfPCell cell3 = new PdfPCell(new Phrase("Price", new Font(Font.NORMAL, 12f, Font.NORMAL)));
-            PdfPCell cell4 = new PdfPCell(new Phrase("Color", new Font(Font.NORMAL, 12f, Font.NORMAL)));
-            PdfPCell cell5 = new PdfPCell(new Phrase("Producent", new Font(Font.NORMAL, 12f, Font.NORMAL)));
+            PdfPCell cell = new PdfPCell(new Phrase("Order", new Font(Font.NORMAL, 15f, Font.NORMAL)))  ;
+            PdfPCell cell1 = new PdfPCell(new Phrase("Product", new Font(Font.NORMAL, 11f, Font.NORMAL)));
+            PdfPCell cell2 = new PdfPCell(new Phrase("Quantity", new Font(Font.NORMAL, 11f, Font.NORMAL)));
+            PdfPCell cell3 = new PdfPCell(new Phrase("Price", new Font(Font.NORMAL, 11f, Font.NORMAL)));
+            PdfPCell cell4 = new PdfPCell(new Phrase("Color", new Font(Font.NORMAL, 11f, Font.NORMAL)));
+            PdfPCell cell5 = new PdfPCell(new Phrase("Producent", new Font(Font.NORMAL, 11f, Font.NORMAL)));
+            PdfPCell cell6 = new PdfPCell(new Phrase("Size", new Font(Font.NORMAL, 11f, Font.NORMAL)));
+            PdfPCell cell7 = new PdfPCell(new Phrase("Extra warrenty", new Font(Font.NORMAL, 11f, Font.NORMAL)));
 
 
 
@@ -70,6 +74,8 @@ namespace ProjectShop
             table.AddCell(cell3);
             table.AddCell(cell4);
             table.AddCell(cell5);
+            table.AddCell(cell6);
+            table.AddCell(cell7);
 
 
 
@@ -81,13 +87,20 @@ namespace ProjectShop
                 PdfPCell cellT3 = new PdfPCell(new Phrase(item.Price.ToString()));
                 PdfPCell cellT4 = new PdfPCell(new Phrase(item.Color));
                 PdfPCell cellT5 = new PdfPCell(new Phrase(item.Producent));
+                PdfPCell cellT6 = new PdfPCell(new Phrase(item.SizeItem));
+                PdfPCell cellT7 = new PdfPCell(new Phrase(item.WithWarrentyElementsCounter.ToString()));
 
-                cellT1.HorizontalAlignment = cellT2.HorizontalAlignment = cellT3.HorizontalAlignment = cellT4.HorizontalAlignment= cellT5.HorizontalAlignment = 1;
+
+                cellT1.HorizontalAlignment = cellT2.HorizontalAlignment = cellT3.HorizontalAlignment = cellT4.HorizontalAlignment= cellT5.HorizontalAlignment =
+                cellT6.HorizontalAlignment=cellT7.HorizontalAlignment = 1;
                 table.AddCell(cellT1);
                 table.AddCell(cellT2);
                 table.AddCell(cellT3);
                 table.AddCell(cellT4);
                 table.AddCell(cellT5);
+                table.AddCell(cellT6);
+                table.AddCell(cellT7);
+
             }
 
             doc.Add(paragraph);
@@ -101,7 +114,8 @@ namespace ProjectShop
 
     public static class Exit_Window
     {
-       static  int k = 0;
+        
+        private static int k { get; set; } = 0;
         public static bool Exit( int i=0)
         {
             if (k == 0)

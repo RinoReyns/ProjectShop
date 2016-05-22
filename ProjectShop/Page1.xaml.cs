@@ -52,6 +52,8 @@ namespace ProjectShop
                         this.TextBlockPrice.Text = Item.Price.ToString();
                         this.TextBoxQuantity.Text = Item.Quantity.ToString();
                         this.TextBlockProducent.Text = Item.Producent;
+                        this.SizeComboBox.ItemsSource = Item.Size;
+                        this.SizeComboBox.SelectedIndex = 0;
                         if (0 ==(String.Compare("0",Item.Color)))
                         {
                             this.ColorComboBox.ItemsSource = Enum.GetValues(typeof(ColorBlack));
@@ -75,28 +77,38 @@ namespace ProjectShop
         {
             try
             {
+        
                 string a = this.ChooseItemComboBox.SelectedValue.ToString();
                 string c = this.ColorComboBox.SelectedValue.ToString();
+                bool? check = this.CheckBoxButton.IsChecked;
                 Product item = (Product)Activator.CreateInstance(Type.GetType("ProjectShop." + a));
-                int b = Control.check(ProductChosenList, a,c);
-          
+                item.SizeItem = this.SizeComboBox.SelectedValue.ToString();
+                int b = Control.check(ProductChosenList, a,c, item.SizeItem);
+            
+                
                 if (-1 == b )
-                {
+                {    //// if added element doesn't excist 
+                    if (check==true)
+                        item.WithWarrentyElementsCounter= int.Parse(this.TextBoxQuantity.Text);
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text);
                     item.Color = c;
-                    item.Price = item.Count(item.Quantity, item.Price, this.CheckBoxButton.IsChecked);
+                    item.Price = item.Count(item.Quantity, item.Price,check);
                     ProductChosenList.Add(item);
                 }
                 else
                 
-                {
-                    item.Price = item.Count(int.Parse(this.TextBoxQuantity.Text), item.Price, this.CheckBoxButton.IsChecked )+ ProductChosenList[b].Price;
+                {   // if excists
+                    if (check == true)
+                        item.WithWarrentyElementsCounter = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[b].WithWarrentyElementsCounter;
+                    else
+                        item.WithWarrentyElementsCounter =  ProductChosenList[b].WithWarrentyElementsCounter;
+
+                    item.Price = item.Count(int.Parse(this.TextBoxQuantity.Text), item.Price, check )+ ProductChosenList[b].Price;
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[b].Quantity;
                     item.Color = ProductChosenList[b].Color;
                     ProductChosenList.RemoveAt(b);
                     ProductChosenList.Insert(b, item);
                 }
-
             }
             catch (Exception)
             {
@@ -121,21 +133,15 @@ namespace ProjectShop
             try
             {
                 if (0==ProductChosenList.Count)
-                {
                     throw new Exception();
-                }
                 else
-                {
                     this.NavigationService.Navigate(new Page2(ProductChosenList, new Person ()));
-                }        
+                      
             }
             catch (Exception)
             {
-
                 MessageBox.Show("You haven't chose anything.", "Empty basket. ");
             }   
-        }
-
-      
+        } 
     }
 }

@@ -39,9 +39,7 @@ namespace ProjectShop
             }
             return Price.ToString();
         }
-
-
-
+    }
         public static class Exit_Window
         {
             private static int k { get; set; } = 0;
@@ -64,7 +62,7 @@ namespace ProjectShop
                 return false;
             }
         }
-    }
+    
 }    
 
 

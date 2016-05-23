@@ -30,7 +30,7 @@ namespace ProjectShop
  
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Control.Exit_Window.Exit(1);
+           Exit_Window.Exit(1);
         }
 
         private void ChooseCategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

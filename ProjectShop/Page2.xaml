@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ProjectShop"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="750"
-      Title="Page2">
+      Title="Page2" >
 
     <Grid>
         <Grid.RowDefinitions>
@@ -53,7 +53,7 @@
                 </Grid.ColumnDefinitions>
             <Button Content="Back" Name="BackButton"  FontSize="15" Margin="10"  Grid.Column="0" Click="BackButton_Click"/>
             
-            <Button Content="Order" Name="OrderButton"  FontSize="15" Margin="10" Grid.Column="3" Click="OrderButton_Click"/>
+            <Button Content="Order" Name="OrderButton"  FontSize="15" Margin="10" Grid.Column="3" Click="OrderButton_Click" IsDefault="True"/>
 
         </Grid>
         

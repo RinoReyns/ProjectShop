@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
+
+
 namespace ProjectShop
 {
     /// <summary>
@@ -22,13 +24,13 @@ namespace ProjectShop
             this.DataContext = this;
             ProductChosenList = new ObservableCollection<Product>(T);
             this.ChooseCategoryComboBox.ItemsSource = Enum.GetValues(typeof(Category));
-            this.ChooseCategoryComboBox.SelectedIndex = 2;
+            this.ChooseCategoryComboBox.SelectedIndex = 0;
             this.ChooseItemComboBox.SelectedIndex = 0;
         }
  
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Exit_Window.Exit(1);
+            Control.Exit_Window.Exit(1);
         }
 
         private void ChooseCategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -142,6 +144,7 @@ namespace ProjectShop
             {
                 MessageBox.Show("You haven't chose anything.", "Empty basket. ");
             }   
-        } 
+        }
+ 
     }
 }

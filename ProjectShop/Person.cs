@@ -11,11 +11,11 @@
         {}
         public Person(Person P)
         {
-            /*this.Name = "Łukasz";
+           /* this.Name = "Łukasz";
             this.Surename = "Pindor";
             this.Address = "Tak";
-            this.Telephone = "503488787";
-            */
+            this.Telephone = "503488787";*/
+            
             this.Name = P.Name;
             this.Surename = P.Surename;
             this.Address = P.Address;

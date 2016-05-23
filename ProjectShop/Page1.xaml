@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="750"
      
-      Title="Page1">
+      Title="Page1" >
 
     
     <Grid>
@@ -134,7 +134,7 @@
             </Grid.ColumnDefinitions>
 
             <Button Content="Exit" Name="ExitButton"  FontSize="15" Margin="10"  Grid.Column="0" Click="ExitButton_Click"/>
-            <Button Content="Add Item" Name="AddItemButton"  FontSize="15" Margin="10" Grid.Column="1" Click="AddItemButton_Click"/>
+            <Button Content="Add Item" Name="AddItemButton"  FontSize="15" Margin="10" Grid.Column="1" Click="AddItemButton_Click" IsDefault="True"/>
             <Button Content="Delete Item" Name="DeleteItemButton"  FontSize="15" Margin="10" Grid.Column="2" Click="DeleteItemButton_Click" />
             <Button Content="Next" Name="OrderButton"  FontSize="15" Margin="10" Grid.Column="3" Click="NextPageButton_Click"/>
         </Grid>

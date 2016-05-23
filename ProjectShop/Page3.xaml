@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ProjectShop"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="750"
-      Title="Page3">
+      Title="Page3" >
   
     <Grid>
         <Grid.RowDefinitions>
@@ -58,7 +58,7 @@
                         <GridViewColumn Header="Name" Width="60"  DisplayMemberBinding="{Binding Name}"/>
                         <GridViewColumn Header="Price" Width="60" DisplayMemberBinding="{Binding Price}" />
                         <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
-                        <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Color}" />
+                        <GridViewColumn Header="Color" Width="60" DisplayMemberBinding="{Binding Color}" />
                         <GridViewColumn Header="Producent"  Width="70" DisplayMemberBinding="{Binding Producent}" />
                         <GridViewColumn Header="Size"  Width="75" DisplayMemberBinding="{Binding SizeItem}" />
                         <GridViewColumn Header="Extra Worrenty Elements"  Width="150" DisplayMemberBinding="{Binding WithWarrentyElementsCounter}" />
@@ -79,10 +79,9 @@
 
             </Grid.ColumnDefinitions>
             <Button Content="Back" Name="BackButton1"  FontSize="15" Margin="10"  Grid.Column="0" Click="BackButton1_Click" />
-            <Label  Content="Final Price:"  Grid.Column="1" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Margin="5,3,5,5"/>
+            <Label  Content="Final Price ($):"  Grid.Column="1" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold" Margin="5,3,5,5"/>
             <Label Name="FinalPriceLabel"  Grid.Column="2" HorizontalAlignment="Left"  FontSize="20" FontWeight="Bold" Margin="5,3,5,5"/>
-            <Button Content="Finish Shopping" Name="FinishShopping"  FontSize="15" Margin="10" Grid.Column="3" Click="FinishShopping_Click" />
-
+            <Button Content="Finish Shopping" Name="FinishShopping"  FontSize="15" Margin="10" Grid.Column="3" Click="FinishShopping_Click" IsDefault="True" />
         </Grid>
     </Grid>
 

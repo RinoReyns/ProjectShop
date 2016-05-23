@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ProjectShop
 {
@@ -32,7 +33,7 @@ namespace ProjectShop
         {
             try
             {
-                Control.PDF_Creator(ProductChosenList, Person);
+                PDFCreator.PDF_Creator(ProductChosenList, Person);
             }
             catch (Exception)
             {
@@ -48,5 +49,11 @@ namespace ProjectShop
         {
             this.NavigationService.Navigate(new Page2(ProductChosenList, Person));
         }
+
+      
+
+     
+
+        
     }
 }

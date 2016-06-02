@@ -13,6 +13,7 @@ namespace ProjectShop
     {
         public ObservableCollection<Product> ProductChosenList { get; set; }
         public Person Person ;
+
         public Page2(ObservableCollection<Product> T, Person P)
         {
             InitializeComponent();
@@ -33,13 +34,13 @@ namespace ProjectShop
         {
             try
             {
-                if (String.IsNullOrEmpty(NameTextBox.Text) | String.IsNullOrEmpty(SurenameTextBox.Text) | String.IsNullOrEmpty(AddressTextBox.Text) | String.IsNullOrEmpty(TelephoneTextBox.Text))
+                if (String.IsNullOrEmpty(NameTextBox.Text) | String.IsNullOrEmpty(SurenameTextBox.Text) | String.IsNullOrEmpty(AddressTextBox.Text) 
+                    | String.IsNullOrEmpty(TelephoneTextBox.Text))
                 {
-                    throw new Exception();
+                    throw new InvalidOperationException();
                 }
                 else
-                {
-                    // brak polskich znaków exception
+                {                   
                     Person.Name = NameTextBox.Text;
                     Person.Surename = SurenameTextBox.Text;
                     Person.Address = AddressTextBox.Text;
@@ -47,7 +48,7 @@ namespace ProjectShop
                     this.NavigationService.Navigate(new Page3(ProductChosenList, Person));
                 }
             }
-            catch (Exception)
+            catch (InvalidOperationException)
             {
                 MessageBox.Show("One or more of fields is empty", "Empty field ");
             }   

@@ -10,11 +10,7 @@
         WindowStartupLocation="CenterScreen"
         BorderBrush="#FF1986D1"
         BorderThickness="1" Closing="Window_Closing" 
-        
         >
-    <!--  Background="Aqua"  WindowStyle="None"  AllowsTransparency="True"-->
-
     <Frame Name="Frame1" NavigationUIVisibility="Hidden">
-        
     </Frame>
 </Window>

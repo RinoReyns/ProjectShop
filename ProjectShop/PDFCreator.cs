@@ -11,7 +11,9 @@ namespace ProjectShop
         public static void PDF_Creator(ObservableCollection<Product> T, Person Person)
         {
             var Control = new Control();
-            var path = "order.pdf ";
+            var path = IfExistFile();
+           
+
             Document doc = new Document(PageSize.LETTER, 10, 10, 42, 35);
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
             doc.Open();
@@ -19,7 +21,8 @@ namespace ProjectShop
             int row = 7;
             PdfPTable table = new PdfPTable(row);
             table.WidthPercentage = 100;
-            Paragraph paragraph = new Paragraph(" Name: " + Person.Name + "\n Surename: " + Person.Surename + "\n Address: " + Person.Address + "\n Telephone: " + Person.Telephone + "\n") { };
+            Paragraph paragraph = new Paragraph(" Name: " + Person.Name + "\n Surename: " + Person.Surename + "\n Address: " 
+                + Person.Address + "\n Telephone: " + Person.Telephone + "\n") { };
             paragraph.Alignment = 1;
             Paragraph paragraph2 = new Paragraph();
             paragraph2.SpacingBefore = 10f;
@@ -27,7 +30,7 @@ namespace ProjectShop
             Paragraph paragraph3 = new Paragraph(" Final Price: " + Control.FinalPrice(T) + "$", new Font(Font.NORMAL, 15f, Font.BOLD));
 
 
-            PdfPCell cell = new PdfPCell(new Phrase("Order", new Font(Font.NORMAL, 15f, Font.NORMAL)));
+            PdfPCell cell0 = new PdfPCell(new Phrase("Order", new Font(Font.NORMAL, 15f, Font.NORMAL)));
             PdfPCell cell1 = new PdfPCell(new Phrase("Product", new Font(Font.NORMAL, 13f, Font.NORMAL)));
             PdfPCell cell2 = new PdfPCell(new Phrase("Quantity", new Font(Font.NORMAL, 13f, Font.NORMAL)));
             PdfPCell cell3 = new PdfPCell(new Phrase("Price", new Font(Font.NORMAL, 13f, Font.NORMAL)));
@@ -37,11 +40,12 @@ namespace ProjectShop
             PdfPCell cell7 = new PdfPCell(new Phrase("Extra warrenty", new Font(Font.NORMAL, 13f, Font.NORMAL)));
 
 
-            cell.BackgroundColor = new BaseColor(0, 200, 0);
-            cell.Colspan = row;
-            cell.HorizontalAlignment = cell1.HorizontalAlignment = cell2.HorizontalAlignment = cell3.HorizontalAlignment = cell4.HorizontalAlignment = cell5.HorizontalAlignment =
-            cell6.HorizontalAlignment = cell7.HorizontalAlignment = 1;
-            table.AddCell(cell);
+            cell0.BackgroundColor = new BaseColor(0, 200, 0);
+            cell0.Colspan = row;
+            cell0.HorizontalAlignment = cell1.HorizontalAlignment = cell2.HorizontalAlignment = cell3.HorizontalAlignment = cell4.HorizontalAlignment 
+                = cell5.HorizontalAlignment = cell6.HorizontalAlignment = cell7.HorizontalAlignment = 1;
+
+            table.AddCell(cell0);
             table.AddCell(cell1);
             table.AddCell(cell2);
             table.AddCell(cell3);
@@ -83,6 +87,24 @@ namespace ProjectShop
             Process.Start(path);
         }
 
+        private static string IfExistFile()
+        {
+            string path = "Order.pdf ";
+            int numberOfOrder = 1;
+            do
+            {
+                if (File.Exists(path))
+                {
+                    path = "Order" + numberOfOrder + ".pdf";
+                    numberOfOrder++;
+                }
+                else
+                    numberOfOrder = -1;
+            }
+            while (numberOfOrder != -1);
+
+            return path;
+        }
     }
 }
 

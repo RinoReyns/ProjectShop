@@ -21,10 +21,12 @@
         </Grid.RowDefinitions>
         <!--podkreślenie tytułu-->
         <StackPanel Grid.Row="0" Height="0,75" >
-            <Label Content="Shop" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+            <Label Content="Shop" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center" FontSize="30"/>
 
         </StackPanel>
-        <Border BorderBrush="#FF1986D1" BorderThickness="0.5" VerticalAlignment="Bottom"/>
+        <Border BorderBrush="#FF1986D1" BorderThickness="0.5" 
+                VerticalAlignment="Bottom"/>
 
 
 
@@ -38,13 +40,22 @@
 
             </Grid.ColumnDefinitions>
 
-            <Label  Content="Choose Category: " Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-            <ComboBox Name="ChooseCategoryComboBox" Grid.Column="1" Height="30" Width="170" HorizontalAlignment="Center" FontSize="15" SelectionChanged="ChooseCategoryComboBox_SelectionChanged"/>
+            <Label  Content="Choose Category: " Grid.Column="0"  
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    FontSize="15"/>
+           
+            <ComboBox Name="ChooseCategoryComboBox" Grid.Column="1" Height="30"
+                      Width="170" HorizontalAlignment="Center" FontSize="15" 
+                      SelectionChanged="ChooseCategoryComboBox_SelectionChanged"/>
 
-            <Label  Content="Choose item: " Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
-            <ComboBox Name="ChooseItemComboBox" Grid.Column="3" Height="30" Width="170" HorizontalAlignment="Center" FontSize="15" SelectionChanged="ChooseItemComboBox_SelectionChanged" />
-
-
+           
+            <Label  Content="Choose item: " Grid.Column="2" 
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    FontSize="15"/>
+           
+            <ComboBox Name="ChooseItemComboBox" Grid.Column="3" Height="30"
+                      Width="170" HorizontalAlignment="Center" FontSize="15" 
+                      SelectionChanged="ChooseItemComboBox_SelectionChanged" />
 
         </Grid>
         <!--Trzeci wiersz i jego podział-->
@@ -65,44 +76,73 @@
                
 
             </Grid.RowDefinitions>
-            <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
-                <Label Content="Mark:"  FontSize="15"  Margin="5,5,5,5" Grid.Row="0"/>
-                <TextBlock Name="TextBlockMark"  FontSize="15"  Margin="0,11,5,5" Grid.Row="0"/>
+            <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" 
+                        Orientation="Horizontal">
+               
+                <Label Content="Mark:"  FontSize="15"  Margin="5,5,5,5" 
+                       Grid.Row="0"/>
+               
+                <TextBlock Name="TextBlockMark"  FontSize="15"  Margin="0,11,5,5"
+                           Grid.Row="0"/>
 
             </StackPanel>
-            <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal">
-                <Label Content="Producent:"  FontSize="15" Margin="5,5,5,5" Grid.Row="0"/>
-                <TextBlock Name="TextBlockProducent" FontSize="15"  Margin="0,11,5,5" Grid.Row="0"/>
+            <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" 
+                        Orientation="Horizontal">
+               
+                <Label Content="Producent:"  FontSize="15" Margin="5,5,5,5" 
+                       Grid.Row="0"/>
+              
+                <TextBlock Name="TextBlockProducent" FontSize="15"  
+                           Margin="0,11,5,5" Grid.Row="0"/>
 
             </StackPanel>
 
 
-            <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" 
+                        Orientation="Horizontal">
+               
                 <Label Content="Size :"  FontSize="15" Margin="5,5,5,5"/>
-                <ComboBox Name="SizeComboBox"   Width="110" FontSize="15" Height="30" Margin="0,-10,0,0"/>
+                
+                <ComboBox Name="SizeComboBox"   Width="110" FontSize="15" 
+                          Height="30" Margin="0,-10,0,0"/>
             </StackPanel>
 
-                <Label Content="Price in $ for pare or 1kg:" Grid.Column="0" Grid.Row="2" FontSize="15" Margin="5,5,5,5" HorizontalAlignment="Left"/>
-                <TextBlock Name="TextBlockPrice" HorizontalAlignment="Left"  Margin="0,10"  FontSize="15" Grid.Column="1" Grid.Row="2" />
+                <Label Content="Price in $ for pare or 1kg:" Grid.Column="0" 
+                       Grid.Row="2" FontSize="15" Margin="5,5,5,5" 
+                       HorizontalAlignment="Left"/>
+               
+                <TextBlock Name="TextBlockPrice" HorizontalAlignment="Left"  
+                           Margin="0,10"  FontSize="15" Grid.Column="1" 
+                           Grid.Row="2" />
             
             
             
-            <StackPanel Grid.Column="2"  Grid.Row="0" HorizontalAlignment="Left" Orientation="Horizontal">
+            <StackPanel Grid.Column="2"  Grid.Row="0" HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+               
                 <Label Content="Quantity:"  FontSize="15"  Margin="5,5,5,5"/>
-                <TextBox x:Name="TextBoxQuantity" FontSize="15" Width="90" Height="25" Margin="5,-10,0,0"   />
+                <TextBox x:Name="TextBoxQuantity" FontSize="15" Width="90" 
+                         Height="25" Margin="5,-10,0,0"   />
             </StackPanel>
 
-            <StackPanel Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Left" Orientation="Horizontal" >
-                <Label Content="Color:"  FontSize="15"  Margin="5,5,5,5" Grid.Row="0"/>
-                <ComboBox x:Name="ColorComboBox" Width="93" FontSize="15" Height="30" Margin="10,-10,0,0" />
+            <StackPanel Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Left" 
+                        Orientation="Horizontal" >
+                
+                <Label Content="Color:"  FontSize="15"  Margin="5,5,5,5"
+                       Grid.Row="0"/>
+                
+                <ComboBox x:Name="ColorComboBox" Width="93" FontSize="15"
+                          Height="30" Margin="10,-10,0,0" />
             </StackPanel>
             
             
-            <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Orientation="Horizontal" >
+            <StackPanel Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left" Orientation="Horizontal" >
+                
                 <Label Content="Extra Warrenty Year - cost:10$ "  FontSize="15" />
                </StackPanel>
+           
             <CheckBox Name="CheckBoxButton" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Margin="10,8,10,6" IsChecked="True"  />
-
 
         </Grid>
 
@@ -111,13 +151,21 @@
             <ListView.View >
                 <GridView >
                    
-                    <GridViewColumn Header="Name" Width="60"  DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Price" Width="60" DisplayMemberBinding="{Binding Price}" />
-                    <GridViewColumn Header="Quantity" Width="60" DisplayMemberBinding="{Binding Quantity}" />
-                    <GridViewColumn Header="Color"  Width="60" DisplayMemberBinding="{Binding Color}" />
-                    <GridViewColumn Header="Producent"  Width="70" DisplayMemberBinding="{Binding Producent}" />
-                    <GridViewColumn Header="Size"  Width="75" DisplayMemberBinding="{Binding SizeItem}" />
-                    <GridViewColumn Header="Extra Warrenty Elements"  Width="150" DisplayMemberBinding="{Binding WithWarrentyElementsCounter}" />
+                    <GridViewColumn Header="Name" Width="60" 
+                                    DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Price" Width="60"
+                                    DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Quantity" Width="60"
+                                    DisplayMemberBinding="{Binding Quantity}" />
+                    <GridViewColumn Header="Color"  Width="60"
+                                    DisplayMemberBinding="{Binding Color}" />
+                    <GridViewColumn Header="Producent"  Width="70"
+                                    DisplayMemberBinding="{Binding Producent}" />
+                    <GridViewColumn Header="Size"  Width="75" 
+                                    DisplayMemberBinding="{Binding SizeItem}" />
+                    <GridViewColumn Header="Extra Warrenty Elements"  Width="150" 
+                                    DisplayMemberBinding
+                                    ="{Binding WithWarrentyElementsCounter}" />
                     
 
                 </GridView>

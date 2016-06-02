@@ -4,15 +4,13 @@ using System.Collections.Generic;
 namespace ProjectShop
 {
 
-    public enum Category { Electronics, Fasion , Home, Music } //+
-   
-    public enum Electronics { Micro }//++
-    public enum Fasion { Boot, Shoes, Dress } //+++
-    public enum Home { Nails,Table, Door }//+++
-    public enum Music { CD, AMP, Guitar } //++
-   
-    public enum Color { Black, Pink, Yellow, Blue, White } //+
-    public enum ColorBlack {Black}//+
+    public enum Category { Electronics, Fasion , Home, Music }    
+    public enum Electronics { Micro }
+    public enum Fasion { Boot, Shoes, Dress } 
+    public enum Home { Nails,Table, Door }
+    public enum Music { CD, AMP, Guitar } 
+    public enum Color { Black, Pink, Yellow, Blue, White } 
+    public enum ColorBlack {Black}
 
 
 
@@ -97,7 +95,6 @@ namespace ProjectShop
             this.Producent = "Flexic";
             Size.Add("Lack of sizes");
         }
-
     }
 
     public class Nails : Product
@@ -136,7 +133,6 @@ namespace ProjectShop
             Size.Add("3x1 m");
             Size.Add("18x35 m");
         }
-
     }
 
     public class Door : Product
@@ -160,10 +156,7 @@ namespace ProjectShop
             this.Color = "0";
             this.Producent = "CDDrex";
             Size.Add("Lack of sizes");
-           
-
         }
-
     }
 
     public class Guitar : Product
@@ -177,10 +170,7 @@ namespace ProjectShop
             Size.Add(@"25.5'");
             Size.Add(@"27'");
             Size.Add(@"24.75'");
-
-
         }
-
     }
 
     public class AMP : Product
@@ -193,11 +183,6 @@ namespace ProjectShop
             this.Producent = "Marshall";
             Size.Add("Combo");
             Size.Add("Head");
-
-
         }
-
     }
-
-
 }

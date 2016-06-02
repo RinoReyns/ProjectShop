@@ -1,11 +1,6 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Windows;
 
 namespace ProjectShop
 {
@@ -40,28 +35,7 @@ namespace ProjectShop
             return Price.ToString();
         }
     }
-        public static class Exit_Window
-        {
-            private static int k { get; set; } = 0;
-            public static bool Exit(int i = 0)
-            {
-                if (k == 0)
-                {
-                    k = i;
-                    MessageBoxResult result = MessageBox.Show("Do you really want to end your shopping without order?", "Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        Application.Current.Shutdown();
-                    }
-                    else if (result == MessageBoxResult.No)
-                    {
-                        k = 0;
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
+        
     
 }    
 

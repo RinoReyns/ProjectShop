@@ -19,8 +19,9 @@ namespace ProjectShop
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            e.Cancel = Exit_Window.Exit();
+            e.Cancel = ExitWindow.Exit();
         }
+        
     }
 }
 

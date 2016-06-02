@@ -30,7 +30,7 @@ namespace ProjectShop
  
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-           Exit_Window.Exit(1);
+           ExitWindow.Exit(1);
         }
 
         private void ChooseCategoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,13 +42,13 @@ namespace ProjectShop
         {
             try
             {
-                string a = this.ChooseItemComboBox.SelectedValue.ToString();
-                if (Control.check(Pro, a) == 0)
-                    Pro.Add((Product)Activator.CreateInstance(Type.GetType("ProjectShop." + a)));
+                string valueFromChooseItemComboBox = this.ChooseItemComboBox.SelectedValue.ToString();
+                if (Control.check(Pro, valueFromChooseItemComboBox) == 0)
+                    Pro.Add((Product)Activator.CreateInstance(Type.GetType("ProjectShop." + valueFromChooseItemComboBox)));
 
                 foreach (var Item in Pro)
                 {
-                    if (0 == (String.Compare(a, Item.Name)))
+                    if (0 == (String.Compare(valueFromChooseItemComboBox, Item.Name)))
                     {
                         this.TextBlockMark.Text = Item.Name;
                         this.TextBlockPrice.Text = Item.Price.ToString();
@@ -79,21 +79,21 @@ namespace ProjectShop
         {
             try
             {
-        
-                string a = this.ChooseItemComboBox.SelectedValue.ToString();
-                string c = this.ColorComboBox.SelectedValue.ToString();
+                const int noExist = -1;
+                string valueFromChooseItemComboBox = this.ChooseItemComboBox.SelectedValue.ToString();
+                string valueFromColorComboBox = this.ColorComboBox.SelectedValue.ToString();
                 bool? check = this.CheckBoxButton.IsChecked;
-                Product item = (Product)Activator.CreateInstance(Type.GetType("ProjectShop." + a));
+                Product item = (Product)Activator.CreateInstance(Type.GetType("ProjectShop." + valueFromChooseItemComboBox));
                 item.SizeItem = this.SizeComboBox.SelectedValue.ToString();
-                int b = Control.check(ProductChosenList, a,c, item.SizeItem);
+                int existingOfElement = Control.check(ProductChosenList, valueFromChooseItemComboBox,valueFromColorComboBox, item.SizeItem);
             
-                
-                if (-1 == b )
+
+                if (noExist == existingOfElement )
                 {    //// if added element doesn't excist 
                     if (check==true)
                         item.WithWarrentyElementsCounter= int.Parse(this.TextBoxQuantity.Text);
                     item.Quantity = int.Parse(this.TextBoxQuantity.Text);
-                    item.Color = c;
+                    item.Color = valueFromColorComboBox;
                     item.Price = item.Count(item.Quantity, item.Price,check);
                     ProductChosenList.Add(item);
                 }
@@ -101,18 +101,18 @@ namespace ProjectShop
                 
                 {   // if excists
                     if (check == true)
-                        item.WithWarrentyElementsCounter = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[b].WithWarrentyElementsCounter;
+                        item.WithWarrentyElementsCounter = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[existingOfElement].WithWarrentyElementsCounter;
                     else
-                        item.WithWarrentyElementsCounter =  ProductChosenList[b].WithWarrentyElementsCounter;
+                        item.WithWarrentyElementsCounter =  ProductChosenList[existingOfElement].WithWarrentyElementsCounter;
 
-                    item.Price = item.Count(int.Parse(this.TextBoxQuantity.Text), item.Price, check )+ ProductChosenList[b].Price;
-                    item.Quantity = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[b].Quantity;
-                    item.Color = ProductChosenList[b].Color;
-                    ProductChosenList.RemoveAt(b);
-                    ProductChosenList.Insert(b, item);
+                    item.Price = item.Count(int.Parse(this.TextBoxQuantity.Text), item.Price, check )+ ProductChosenList[existingOfElement].Price;
+                    item.Quantity = int.Parse(this.TextBoxQuantity.Text) + ProductChosenList[existingOfElement].Quantity;
+                    item.Color = ProductChosenList[existingOfElement].Color;
+                    ProductChosenList.RemoveAt(existingOfElement);
+                    ProductChosenList.Insert(existingOfElement, item);
                 }
             }
-            catch (Exception)
+            catch (FormatException)
             {
                 MessageBox.Show("Select qauantity be can't ordered. Change the quantity", "Add item ");
             }
@@ -124,23 +124,24 @@ namespace ProjectShop
             {
                 this.ProductChosenList.RemoveAt(this.ListView1.SelectedIndex);
             }
-            catch (Exception)
+            catch (ArgumentOutOfRangeException )
             {
                 MessageBox.Show("Select item that you want to delete", "Delete item ");
             }
         }
 
+    
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {  
             try
             {
                 if (0==ProductChosenList.Count)
-                    throw new Exception();
+                    throw new InvalidOperationException();
                 else
                     this.NavigationService.Navigate(new Page2(ProductChosenList, new Person ()));
                       
             }
-            catch (Exception)
+            catch (InvalidOperationException)
             {
                 MessageBox.Show("You haven't chose anything.", "Empty basket. ");
             }   

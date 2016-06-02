@@ -16,7 +16,8 @@
 
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"  >
-            <Label Content="Customer Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+            <Label Content="Customer Data" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   FontSize="30"/>
 
         </StackPanel>
 
@@ -28,17 +29,30 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Label  Content="Name:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
-                <Label  Content="Surename:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
-                <Label  Content="Address:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
-                <Label  Content="Telephone:"   HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,10,5,5"/>
+                <Label  Content="Name:"   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                        FontSize="15" Margin="5,10,5,5"/>
+               
+                <Label  Content="Surename:"   HorizontalAlignment="Center" VerticalAlignment="Top" 
+                        FontSize="15" Margin="5,10,5,5"/>
+                
+                <Label  Content="Address:"   HorizontalAlignment="Center" VerticalAlignment="Top"
+                        FontSize="15" Margin="5,10,5,5"/>
+                
+                <Label  Content="Telephone:"   HorizontalAlignment="Center" VerticalAlignment="Top"
+                        FontSize="15" Margin="5,10,5,5"/>
 
             </StackPanel>
             <StackPanel Grid.Column="1">
-                <TextBox Name="NameTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
-                <TextBox Name="SurenameTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
-                <TextBox Name="AddressTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
-                <TextBox Name="TelephoneTextBox"  Height="25" Width="150" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                <TextBox Name="NameTextBox"  Height="25" Width="150" HorizontalAlignment="Center"
+                         VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                
+                <TextBox Name="SurenameTextBox"  Height="25" Width="150" HorizontalAlignment="Center"
+                         VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                
+                <TextBox Name="AddressTextBox"  Height="25" Width="150" HorizontalAlignment="Center"
+                         VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
+                <TextBox Name="TelephoneTextBox"  Height="25" Width="150" HorizontalAlignment="Center"
+                         VerticalAlignment="Top" FontSize="15" Margin="5,15,5,5" />
 
             </StackPanel>
             
@@ -51,9 +65,11 @@
                     <ColumnDefinition Width="1*"/>
 
                 </Grid.ColumnDefinitions>
-            <Button Content="Back" Name="BackButton"  FontSize="15" Margin="10"  Grid.Column="0" Click="BackButton_Click"/>
+            <Button Content="Back" Name="BackButton"  FontSize="15" Margin="10" 
+                    Grid.Column="0" Click="BackButton_Click"/>
             
-            <Button Content="Order" Name="OrderButton"  FontSize="15" Margin="10" Grid.Column="3" Click="OrderButton_Click" IsDefault="True"/>
+            <Button Content="Order" Name="OrderButton"  FontSize="15" Margin="10"
+                    Grid.Column="3" Click="OrderButton_Click" IsDefault="True"/>
 
         </Grid>
         

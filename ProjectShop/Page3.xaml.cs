@@ -35,9 +35,13 @@ namespace ProjectShop
             {
                 PDFCreator.PDF_Creator(ProductChosenList, Person);
             }
-            catch (Exception)
+           catch (System.IO.FileNotFoundException )
             {
-                MessageBox.Show("There is a problem with finishing order. Check if program is installed corectlly, then try to make order again.", "Order problem. ");
+                 MessageBox.Show("There is a problem with finishing order. Check if program is installed corectlly, then try to make order again.", "Order problem. ");
+            }
+            catch (System.IO.IOException)
+            {
+                MessageBox.Show("Close PDF file firts, then make your order again", "Order problem. ");
             }
             finally
             {
@@ -49,11 +53,6 @@ namespace ProjectShop
         {
             this.NavigationService.Navigate(new Page2(ProductChosenList, Person));
         }
-
-      
-
-     
-
         
     }
 }

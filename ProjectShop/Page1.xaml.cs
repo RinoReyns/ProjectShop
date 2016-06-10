@@ -4,16 +4,11 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 
-
-
 namespace ProjectShop
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
+    
     public partial class Page1 : Page
     {
-
         public ObservableCollection<Product> ProductChosenList { get; set; }
         private Control Control = new Control();
         private List<Product> Pro = new List<Product>();

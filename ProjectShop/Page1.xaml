@@ -19,6 +19,7 @@
             <RowDefinition Height="0.6*"/>
 
         </Grid.RowDefinitions>
+        
         <!--podkreślenie tytułu-->
         <StackPanel Grid.Row="0" Height="0,75" >
             <Label Content="Shop" HorizontalAlignment="Center" 
@@ -27,7 +28,6 @@
         </StackPanel>
         <Border BorderBrush="#FF1986D1" BorderThickness="0.5" 
                 VerticalAlignment="Bottom"/>
-
 
 
         <!--Drugi wiersz i jego podział-->
@@ -142,12 +142,16 @@
                 <Label Content="Extra Warrenty Year - cost:10$ "  FontSize="15" />
                </StackPanel>
            
-            <CheckBox Name="CheckBoxButton" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Margin="10,8,10,6" IsChecked="True"  />
+            <CheckBox Name="CheckBoxButton" Grid.Column="1" Grid.Row="3" 
+                      VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+                      Margin="10,8,10,6" IsChecked="True"  />
 
         </Grid>
 
         <!--Elementy dodane do koszyka-->
-        <ListView Name="ListView1" Grid.Row="3" ItemsSource="{Binding  ProductChosenList}"  BorderBrush="#FF1986D1"  >
+        <ListView Name="ListView1" Grid.Row="3" ItemsSource="{Binding  
+            ProductChosenList}"  BorderBrush="#FF1986D1"  >
+            
             <ListView.View >
                 <GridView >
                    
@@ -160,19 +164,18 @@
                     <GridViewColumn Header="Color"  Width="60"
                                     DisplayMemberBinding="{Binding Color}" />
                     <GridViewColumn Header="Producent"  Width="70"
-                                    DisplayMemberBinding="{Binding Producent}" />
+                                    DisplayMemberBinding="{Binding Producent}"/>
                     <GridViewColumn Header="Size"  Width="75" 
                                     DisplayMemberBinding="{Binding SizeItem}" />
                     <GridViewColumn Header="Extra Warrenty Elements"  Width="150" 
                                     DisplayMemberBinding
                                     ="{Binding WithWarrentyElementsCounter}" />
-                    
 
                 </GridView>
             </ListView.View>
 
         </ListView>
-        <!--Row 4-->
+   
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />

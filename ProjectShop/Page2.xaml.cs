@@ -2,17 +2,13 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace ProjectShop
 {
-    /// <summary>
-    /// Interaction logic for Page2.xaml
-    /// </summary>
     public partial class Page2 : Page
     {
         public ObservableCollection<Product> ProductChosenList { get; set; }
-        public Person Person ;
+        public Person Person;
 
         public Page2(ObservableCollection<Product> T, Person P)
         {

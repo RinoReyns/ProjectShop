@@ -6,9 +6,7 @@ using System.Windows.Input;
 
 namespace ProjectShop
 {
-    /// <summary>
-    /// Interaction logic for Page3.xaml
-    /// </summary>
+   
     public partial class Page3 : Page
     {
         public ObservableCollection<Product> ProductChosenList { get; set; }
@@ -53,6 +51,5 @@ namespace ProjectShop
         {
             this.NavigationService.Navigate(new Page2(ProductChosenList, Person));
         }
-        
     }
 }

@@ -1,23 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace ProjectShop
 {
-
-    public enum Category { Electronics, Fasion , Home, Music }    
-    public enum Electronics { Micro }
-    public enum Fasion { Boot, Shoes, Dress } 
-    public enum Home { Nails,Table, Door }
-    public enum Music { CD, AMP, Guitar } 
-    public enum Color { Black, Pink, Yellow, Blue, White } 
-    public enum ColorBlack {Black}
-
-
-
-    /// <summary>
-    /// też do policzenia ogolnej liości i ceny
-    /// </summary>
-
     public abstract class Product : ICount
     {
         public string Name { get; set; }
@@ -70,7 +54,6 @@ namespace ProjectShop
             Size.Add("41");
             Size.Add("42");
         }
-
     }
     public class Dress: Product
     {
@@ -113,9 +96,9 @@ namespace ProjectShop
      override  public double Count(int quantity, double price, bool? checkbox)
         {
             if (checkbox == true)
-                return (((quantity * price) + quantity * 10) / 2);
+                return (((quantity * price) + quantity * 10)/2);
             else
-                return ((quantity * price) / 2);
+                return ((quantity * price)/2);
         }
 
     }

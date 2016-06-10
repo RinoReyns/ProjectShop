@@ -17,9 +17,9 @@ namespace ProjectShop
             Document doc = new Document(PageSize.LETTER, 10, 10, 42, 35);
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(path, FileMode.Create));
             doc.Open();
-
             int row = 7;
             PdfPTable table = new PdfPTable(row);
+            
             table.WidthPercentage = 100;
             Paragraph paragraph = new Paragraph(" Name: " + Person.Name + "\n Surename: " + Person.Surename + "\n Address: " 
                 + Person.Address + "\n Telephone: " + Person.Telephone + "\n") { };
@@ -44,7 +44,7 @@ namespace ProjectShop
             cell0.Colspan = row;
             cell0.HorizontalAlignment = cell1.HorizontalAlignment = cell2.HorizontalAlignment = cell3.HorizontalAlignment = cell4.HorizontalAlignment 
                 = cell5.HorizontalAlignment = cell6.HorizontalAlignment = cell7.HorizontalAlignment = 1;
-
+          
             table.AddCell(cell0);
             table.AddCell(cell1);
             table.AddCell(cell2);
@@ -53,7 +53,7 @@ namespace ProjectShop
             table.AddCell(cell5);
             table.AddCell(cell6);
             table.AddCell(cell7);
-
+            
 
             foreach (var item in T)
             {
@@ -102,7 +102,6 @@ namespace ProjectShop
                     numberOfOrder = -1;
             }
             while (numberOfOrder != -1);
-
             return path;
         }
     }

@@ -11,7 +11,6 @@
         {}
         public Person(Person P)
         {
-            
             this.Name = P.Name;
             this.Surename = P.Surename;
             this.Address = P.Address;

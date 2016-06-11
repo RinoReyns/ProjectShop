@@ -125,7 +125,6 @@ namespace ProjectShop
             }
         }
 
-    
         private void NextPageButton_Click(object sender, RoutedEventArgs e)
         {  
             try

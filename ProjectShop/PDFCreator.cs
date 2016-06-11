@@ -68,6 +68,7 @@ namespace ProjectShop
 
                 cellT1.HorizontalAlignment = cellT2.HorizontalAlignment = cellT3.HorizontalAlignment = cellT4.HorizontalAlignment = cellT5.HorizontalAlignment =
                 cellT6.HorizontalAlignment = cellT7.HorizontalAlignment = 1;
+
                 table.AddCell(cellT1);
                 table.AddCell(cellT2);
                 table.AddCell(cellT3);

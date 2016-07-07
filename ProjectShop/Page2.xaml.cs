@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -30,10 +31,16 @@ namespace ProjectShop
         {
             try
             {
-                if (String.IsNullOrEmpty(NameTextBox.Text) | String.IsNullOrEmpty(SurenameTextBox.Text) | String.IsNullOrEmpty(AddressTextBox.Text) 
+                var regtele = new Regex(@"^[0-9]{5,9}$");
+
+                if (String.IsNullOrEmpty(NameTextBox.Text) | String.IsNullOrEmpty(SurenameTextBox.Text) | String.IsNullOrEmpty(AddressTextBox.Text)
                     | String.IsNullOrEmpty(TelephoneTextBox.Text))
                 {
-                    throw new InvalidOperationException();
+                    throw new InvalidOperationException("One or more of fields is empty.");
+                }
+                else if (!regtele.IsMatch(TelephoneTextBox.Text))
+                {
+                    throw new InvalidOperationException("The phone number is incorrect.");
                 }
                 else
                 {                   
@@ -44,9 +51,9 @@ namespace ProjectShop
                     this.NavigationService.Navigate(new Page3(ProductChosenList, Person));
                 }
             }
-            catch (InvalidOperationException)
+            catch (InvalidOperationException t)
             {
-                MessageBox.Show("One or more of fields is empty", "Empty field ");
+                MessageBox.Show(t.Message, "Data Error");
             }   
         }
     }

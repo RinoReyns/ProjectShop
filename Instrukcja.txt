@@ -1,8 +1,0 @@
-#ProjectShop
-
-
-W projekcie u¿y³em bibliotek DLL, aby stworzyæ PDF'a i wyeksportowaæ zamówienie do pliku z takim rozszerzeniem.
-Aby ca³y program dzia³a³ poprawnie nale¿y po³¹czyæ bilbioteki, które znajduj¹ siê w linku poni¿ej:
-
-
-https://www.dropbox.com/s/9h367inxt8u953n/itextsharp.zip?dl=0
